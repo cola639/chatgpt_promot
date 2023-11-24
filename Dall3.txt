@@ -1,0 +1,36 @@
+先上传图片
+
+1 图像种子
+what is the seed of image
+
+
+2 对图像训练
+Replace the hairstyle of the boy in the image with the seed number 409149752 with the hairstyle of the boy in the image with the seed number 3659555824
+
+3 卡通风格
+in a cartoon style
+
+4 用种子修改图像
+Modify image with Seed xxxx: xxxx
+
+5 其他不变
+Other unchanged
+
+6 修改图片
+Modify image: xxxx
+
+7 生成四张
+Generate four images
+
+8 布局
+Layout:
+Upper left and upper right
+Bottom left and bottom right
+
+9 插画风格
+The characters are depicted with smooth lines, soft coloring, and simplified facial features which contribute to the overall charming and warm aesthetic
+
+
+This style is a modern, clean illustration with a cartoon-like quality, featuring smooth lines and soft colors that convey a friendly and approachable character vibe.
+
+10 长宽比 像素 大小 

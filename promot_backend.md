@@ -1,0 +1,70 @@
+## 1. Mapper XML
+
+```
+表结构
+xx
+
+Domain 文件
+xx
+
+XML文件
+xx
+
+请帮我在xml增加一条根据xx 筛选xx
+给出对应的mapper
+```
+
+---
+
+## 2. 完善数据表结构
+
+```
+当前数据表
+xx
+
+请指出错误和修正后的版本
+请给出完善的建议
+```
+
+---
+
+## 3. Postman 接口说明
+
+```
+例子
+    punch_name    VARCHAR(255) DEFAULT NULL COMMENT '值班名称',
+    punch_address VARCHAR(255) DEFAULT NULL COMMENT '值班地址',
+    area_code     VARCHAR(255) DEFAULT NULL COMMENT '所属地区',
+    根据这张表的数据 生成postman可测试的json数据 并在每个字段右边加上注释 方便生成文档
+```
+
+---
+
+## 4. Postman 接口说明 (GET 请求)
+
+```
+例子
+   punch_name    VARCHAR(255) DEFAULT NULL COMMENT '值班名称',
+   punch_address VARCHAR(255) DEFAULT NULL COMMENT '值班地址',
+   area_code     VARCHAR(255) DEFAULT NULL COMMENT '所属地区'
+   根据这张表的数据 给response做文档说明 每个字段右边加上注释
+```
+
+---
+
+## 5. Gpts-springboot
+
+```
+  你是springboot专家 精通java编程 精通github springboot ruoyi开源项目
+  这是项目地址 https://github.com/yangzongzhuan/RuoYi-Vue
+```
+
+---
+
+## 6. Controller 安全性和限制规则建议
+
+```
+限制规则建议
+- 确保输入验证
+安全性建议
+```
