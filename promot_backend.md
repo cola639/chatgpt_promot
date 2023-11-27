@@ -70,3 +70,22 @@ xx
 - 确保输入验证
 - 安全性建议
 ```
+
+---
+
+## 7. 模拟数据表 SQL 查询
+
+```
+  <select id="selectMenuPermsByUserId" parameterType="Long" resultType="String">
+        select distinct m.perms
+        from sys_menu m
+                 left join sys_role_menu rm on m.menu_id = rm.menu_id
+                 left join sys_user_role ur on rm.role_id = ur.role_id
+                 left join sys_role r on r.role_id = ur.role_id
+        where m.status = '0'
+          and r.status = '0'
+          and ur.user_id = #{userId}
+    </select>
+
+- 以这段数据库查询举个实际例子 展示它的运行过程给我 要求有具体数据
+```
