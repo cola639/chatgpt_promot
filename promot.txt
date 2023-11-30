@@ -25,7 +25,7 @@
 7 编程中 想命名一个boolean类型的变量  定义为是否xxx 用2或3个单词如何命名
 
 8 react改写vue文件:
-			使用React和CSS-in-JS库（如styled-components）来改写这段Vue代码
+			使用React和CSS-in-JS库（styled-components）来改写这段Vue代码
 
 9  xx函数 代码中的注释是要完成的内容 在代码中注释下方补充相应代码
 
