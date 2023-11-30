@@ -33,4 +33,4 @@ The characters are depicted with smooth lines, soft coloring, and simplified fac
 
 This style is a modern, clean illustration with a cartoon-like quality, featuring smooth lines and soft colors that convey a friendly and approachable character vibe.
 
-10 长宽比 像素 大小 
+10 限制长宽比 像素 大小 
