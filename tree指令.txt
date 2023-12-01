@@ -9,4 +9,4 @@ tree -I '.git|.github|.idea|bin|doc|sql|target|.gitignore|Dockerfile|Jenkinsfile
 tree -l 2, -o name-tree.txt --ignore 'dist, .git, .github, node_modules, publish, site_docs, tsc, images'
 
 # 前端项目 忽视具体文件
-tree -l 4, -d -o name-tree.txt --ignore 'dist, .git, .github, node_modules, publish, site_docs, tsc, images'
+tree -l 2, -d -o name-tree.txt --ignore 'dist, .git, .github, node_modules, publish, site_docs, tsc, images'
