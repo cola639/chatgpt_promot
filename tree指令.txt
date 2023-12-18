@@ -1,3 +1,5 @@
+# 执行工具 bash 原生cmd
+
 tree -I '.git|.github|.idea|bin|doc|sql|target' -l -all -6 
 
 tree -I '.git|.github|.idea|bin|doc|sql|target'  -L 10 > springboot-tree.txt
