@@ -28,7 +28,7 @@ xx
 
 ---
 
-## 3. Postman 接口说明
+## 3. Postman 接口说明 (post 请求)
 
 ```
 例子
