@@ -98,3 +98,14 @@ xx
 
 -
 ```
+
+## 9. 实体类新增字段 xml 添加对应字段内容
+
+```
+  xx.domain
+  上面是实体类
+  帮我在下面xml添加 字段1  字段2 部分
+  以单独每句xml返回
+  xx.xml {select update insert}
+-
+```
