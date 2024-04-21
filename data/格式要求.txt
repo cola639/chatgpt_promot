@@ -1,0 +1,26 @@
+1 方法注释要求
+
+一个方法的注释，它应该包含以下内容：
+- 方法描述：这个方法是做什么的，它的应用场景。
+- 示例：我想要一个简单的示例，展示如何调用这个方法以及预期的输出。
+- 输出格式：请指出输出的格式，如果是日期请使用YYYY-MM-DD格式。
+- 如果有特殊的返回值或异常处理，请也说明。
+
+模板如下
+import java.sql.Date;
+import java.time.LocalDate;
+
+/**
+ * 获取当前系统日期的 java.sql.Date 对象。
+ * 用于需要 java.sql.Date 类型的数据库操作。
+ * 
+ * 示例：
+ * java.sql.Date sqlDate = DateUtils.getCurrentSqlDate();
+ * System.out.println(sqlDate); // 输出格式: YYYY-MM-DD, 如 2024-04-21
+ *
+ * @return 当前日期的 java.sql.Date 对象
+ */
+public static Date getCurrentSqlDate() {
+    // 创建代表当前日期的 java.sql.Date 对象
+    return java.sql.Date.valueOf(LocalDate.now());
+}
