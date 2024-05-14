@@ -109,3 +109,12 @@ xx
   xx.xml {select update insert}
 -
 ```
+
+### 10. 根据表结构生成 xml ...
+
+```
+根据表
+生成对应的
+xml model impl mapper service 及 service interface
+
+```
