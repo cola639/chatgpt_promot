@@ -1,0 +1,221 @@
+-------------------【Ruoyi管理后台】用户登录强制修改密码开始 -------------
+【Ruoyi管理后台】用户登录强制修改密码 这篇文章已经实现了这个需求，前两天在一次偶然的机遇下，发现了另外一种方式，是基于 spring security 的，然后就踩了一个大坑，特此记录一下
+
+前几天，在研究新版 spring security 的时候，突然发现了 UserDetails 这个接口有一个方法 isCredentialsNonExpired，用于判断是否已过期的用户的凭据(密码)，然后我就想起之前在若依后台系统这边处理过的一个强制修改密码的需求，于是，我就翻看了一下系统的代码，然后就此翻开了一个潘多拉的魔盒...
+
+1.发现入口
+在项目 ruoyi-common 下，有一个类 LoginUser，它就是实现了 UserDetails 接口
+
+package com.ruoyi.common.core.domain.model;
+ 
+public class LoginUser implements UserDetails
+{
+    private static final long serialVersionUID = 1L;
+ 
+    //....
+ 
+    /**
+     * 账户是否未过期,过期无法验证
+     */
+    @JSONField(serialize = false)
+    @Override
+    public boolean isAccountNonExpired()
+    {
+        return true;
+    }
+ 
+    /**
+     * 指定用户是否解锁,锁定的用户无法进行身份验证
+     * 
+     * @return
+     */
+    @JSONField(serialize = false)
+    @Override
+    public boolean isAccountNonLocked()
+    {
+        return true;
+    }
+ 
+    /**
+     * 指示是否已过期的用户的凭据(密码),过期的凭据防止认证
+     * 
+     * @return
+     */
+    @JSONField(serialize = false)
+    @Override
+    public boolean isCredentialsNonExpired()
+    {
+        return true;
+    }
+ 
+    /**
+     * 是否可用 ,禁用的用户不能身份验证
+     * 
+     * @return
+     */
+    @JSONField(serialize = false)
+    @Override
+    public boolean isEnabled()
+    {
+        return true;
+    }
+ 
+    //...
+}
+
+可以看到 isCredentialsNonExpired 方法是直接返回 true 的，意思就是默认认为密码是不会过期的。所以，我们就可以通过这个方法去处理密码过期的逻辑，例如三个月没修改过密码就返回 false
+
+2.尝试调整
+于是，我尝试将它直接改为 false，看看 spring security 是怎么处理这个问题的
+
+前台页面提示了错误
+
+
+
+后台接口报出了异常
+
+
+
+然后我在想，是不是只要在 spring security 的某个错误处理环节里面加入一个自定义的逻辑，不就可以实现强制让用户修改密码了，毕竟它都给我们预留接口了。
+
+但是实际上，并没有想象中的简单，后面就开始踩坑了...
+
+3.踩坑过程
+从后台接口报错日志来看，是在 SysLoginService 这个类抛出来的，那么就进去看看。
+
+
+
+可以看到这是一个登录时的处理方法，引起抛异常的应该是在 AuthenticationManager 的 authentication 方法，具体不在这里展开说这个方法，里面就是有个 check 方法，会判断 UserDetails 里面的几个方法，其中就有我们的过期密码判断。
+
+异常调试
+接着设置一个断点，看看是异常是怎么一回事。
+
+
+
+从上图可以看到，这里抛出了 CredentialsExpiredException ，但是逻辑代码中并没有去处理这个异常，所以就直接走到了 ServiceException 异常，这是一个自定义的异常处理，继承的是 RuntimeException
+
+那问题来了，要怎么入手处理呢？于是我想到不是有一个 spring security 配置的吗？先进去看一眼
+
+spring security 配置
+
+
+其中，红色箭头的处理方法，就是 AuthenticationEntryPoint 用来解决匿名用户访问无权限资源时的异常。
+
+于是，我找到了这个实现类 AuthenticationEntryPointImpl ，看看里面的实现。
+
+
+
+很简单就返回一段 json 
+
+我就想只要在这里面处理这个异常不就好了，例如像下面这样：
+
+if (e instanceof CredentialsExpiredException) {
+    //....
+}
+然后我在这里设置一个断点，看看有没有进来，最后我发现并没有...
+
+异常处理逻辑
+我在想，会不会是因为捕捉了异常，所以没进来呢？于是我先将这部分的代码先注释掉看看：
+
+
+
+然而发现，并没有...
+
+我在想，security 的配置中，是不是还有其他的方法，可以处理这种问题的呢？
+
+然后我发现有一个 failureHandler 方法，用于处理登录失败的，但是我发现并不能够直接链式调用，需要先使用 formLogin 方法...
+
+但是若依这边并不是用 form 表单的方式提交的，貌似也不能这么用吧，于是以试一试的心态调整一下，然后就发现...
+
+
+
+突然我想到，是不是有全局异常处理的关系，导致 AuthenticationEntryPoint 失效了呢？
+
+于是，我将 ruoyi-framework 下的 GlobalExceptionHandler 的 @RestControllerAdvice 注解取消掉看看效果。
+
+
+
+好家伙，终于进来了...
+
+
+
+到这里，总结来说就是加入了全局异常处理以后，，实际上就不会再走到 AuthenticationEntryPoint 这里来了...
+
+4.纠结过程
+既然知道了问题所在，那么现在就要考虑应该改哪里，怎么改，又是一个十分纠结的过程。
+
+其一：SysLoginService 的异常捕捉主要是写入日志到数据库，这步骤也可以迁移到全局异常处理里面实现
+
+其二：主要问题还在于全局异常处理，这部分应该需要保留，那么其实 AuthenticationEntryPoint 这边基本上是没用了
+
+其三：还需要考虑到如何将这个错误信息返回到前台页面
+
+那么问题就来到，如何在全局异常处理里面去实现我们的需求
+
+5.实现需求
+目前实现的思路大概是这样：
+
+1）SysLoginService 校验时会抛出 CredentialsExpiredException，代表用户的密码过期了，然后我们要捕捉这个异常
+
+2）在 GlobalExceptionHandler 全局异常处理内，要针对这个异常去捕捉处理，并在里面返回前台需要的信息
+
+第一步，我们在 SysLoginService 内适配这个 CredentialsExpiredException 异常，并重新抛出它，因为不适配，就会走到 else 那边抛出去就是一个自定义的 ServiceException (这里先留一个坑)
+
+
+
+第二步，我们在 GlobalExceptionHandler 内去捕捉上面抛出的 CredentialsExpiredException 异常，并带回前台需要的信息
+
+
+
+感觉一切好像都很顺利，接着就试着运行一下
+
+
+
+从上图可以看到异常进来了
+
+
+
+也能来到全局异常处理这里，但是...
+
+
+
+但是，在获取用户名的时候就抛异常了，这是为什么呢？！
+
+原来...因为....要用户成功登录后，用户信息才会保存在这个上下文里面，但是...我们目前还没算是成功登录！
+
+所以，现在这个问题又绕回到如何拿到用户名的问题上来了...
+
+6.最终方案
+新建一个自定义的异常类，构造函数中能够传入一些自定义的参数
+
+public class UserPasswordExpiredException extends UserException
+{
+    private static final long serialVersionUID = 1L;
+ 
+    public UserPasswordExpiredException()
+    {
+        super("user.password.is.expired", null);
+    }
+ 
+    public UserPasswordExpiredException(Object[] args)
+    {
+        super("user.password.is.expired", args);
+    }
+}
+其中 UserException 为若依系统中自定义的异常类，能传入一个 Object 数组
+
+public class UserException extends BaseException
+{
+    private static final long serialVersionUID = 1L;
+ 
+    public UserException(String code, Object[] args)
+    {
+        super("user", code, args, null);
+    }
+}
+重新调整 SysLoginService 的抛出异常为 UserPasswordExpiredException
+
+
+
+重新调整 GlobalExceptionHandler 内的异常捕捉，并在异常对象用获取需要的参数
+-------------------【Ruoyi管理后台】用户登录强制修改密码结束 -------------
