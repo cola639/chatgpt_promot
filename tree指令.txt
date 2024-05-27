@@ -1,8 +1,15 @@
-# 执行工具 bash 原生cmd
+# prepare 
 
+node 22.0.0 
+git bash 
+npm install -g tree-cli
+tree
+
+# ！！！执行命令工具bash 
 tree -I '.git|.github|.idea|bin|doc|sql|target' -l -all -6 
 
-tree -I '.git|.github|.idea|bin|doc|sql|target'  -L 10 > springboot-tree.txt
+# 生成名为directory.txt文件 目录树内容 
+tree -I '.git|.github|.idea|bin|doc|sql|target'  -l -all -6 > directory.txt
 
 # springboot
 tree -I '.git|.github|.idea|bin|doc|sql|target|.gitignore|Dockerfile|Jenkinsfile|LICENSE|MY_README.md|out.txt|pom.xml|README.md|ry.bat|ry.sh|springboot-tree.md|tree.md|tree指令.txt'  -L 10
@@ -12,3 +19,11 @@ tree -l 2, -o name-tree.txt --ignore 'dist, .git, .github, node_modules, publish
 
 # 前端项目 忽视具体文件
 tree -l 2, -d -o name-tree.txt --ignore 'dist, .git, .github, node_modules, publish, site_docs, tsc, images'
+
+# 生成GPT目录 加文件内容txt
+
+# 第1步 git bash 运行下面命令
+tree -I '.git|.github|.idea|bin|doc|sql|target'  -l -all -6 > directory.txt
+
+# 第2步 用CMD命令行生成内容txt保存到桌面
+genGPT
