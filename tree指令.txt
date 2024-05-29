@@ -20,8 +20,7 @@ tree -l 2, -o name-tree.txt --ignore 'dist, .git, .github, node_modules, publish
 # 前端项目 忽视具体文件
 tree -l 2, -d -o name-tree.txt --ignore 'dist, .git, .github, node_modules, publish, site_docs, tsc, images'
 
-# 生成GPT目录 加文件内容txt
-
+# 快速生成GPT目录 加文件内容txt
 # 第1步 git bash 运行下面命令
 tree -I '.git|.github|.idea|bin|doc|sql|target'  -l -all -6 > directory.txt
 
