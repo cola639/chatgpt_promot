@@ -118,3 +118,10 @@ xx
 xml model impl mapper service 及 service interface
 
 ```
+
+### 11 根据文档 或 网页 demo 实现同类型功能
+
+```
+  OSS上传
+  SNS通知
+```
