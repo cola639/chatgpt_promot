@@ -95,8 +95,6 @@ xx
 
 ```
   帮我根据Max Min NotBlank NotNull 对数据添加校验注解
-
--
 ```
 
 ## 9. 实体类新增字段 xml 添加对应字段内容
@@ -124,4 +122,18 @@ xml model impl mapper service 及 service interface
 ```
   OSS上传
   SNS通知
+```
+
+### 12 controller => service interface => service impl => mapper => xml
+
+```
+  准备材料 domain dataSheet
+  不要别的多余的部分 只给关于该功能 xml mapper service Impl 关键代码
+```
+
+### 13 controller + model => postman
+
+```
+  准备材料 controller model
+  不要导出excel接口 生成postman文档
 ```
