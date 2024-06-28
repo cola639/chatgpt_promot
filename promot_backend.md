@@ -125,3 +125,10 @@ xml model impl mapper service 及 service interface
   OSS上传
   SNS通知
 ```
+
+### 12 controller
+
+```
+  准备材料 domain dataSheet
+  不要别的多余的部分 只给关于该功能 xml mapper service Impl 关键代码
+```
