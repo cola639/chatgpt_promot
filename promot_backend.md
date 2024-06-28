@@ -124,17 +124,12 @@ xml model impl mapper service 及 service interface
   SNS通知
 ```
 
-<<<<<<< HEAD
 ### 12 controller => service interface => service impl => mapper => xml
-=======
-### 12 controller
->>>>>>> d3e958f53f6f5d2151fc441eb47b0cbdac2ef021
 
 ```
   准备材料 domain dataSheet
   不要别的多余的部分 只给关于该功能 xml mapper service Impl 关键代码
 ```
-<<<<<<< HEAD
 
 ### 13 controller + model => postman
 
@@ -142,5 +137,3 @@ xml model impl mapper service 及 service interface
   准备材料 controller model
   不要导出excel接口 生成postman文档
 ```
-=======
->>>>>>> d3e958f53f6f5d2151fc441eb47b0cbdac2ef021
