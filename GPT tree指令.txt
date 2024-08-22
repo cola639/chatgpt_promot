@@ -28,3 +28,4 @@ tree -l 2, -o name-tree.txt --ignore 'dist, .git, .github, node_modules, publish
 # 前端项目 忽视具体文件
 tree -l 2, -d -o name-tree.txt --ignore 'dist, .git, .github, node_modules, publish, site_docs, tsc, images'
 
+# 在目录树每行右边添加注释 排版对齐

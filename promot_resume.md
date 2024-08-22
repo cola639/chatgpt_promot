@@ -1,6 +1,19 @@
 ### 1. 项目介绍
 
-我有个 12348 项目维护和开发新功能模块使用了下面技术
+我有个 xx 系统
+
+项目描述：xx
+
+技术栈
+前端基于 react + antd + react-redux + react-router-dom + react-toolkit
+后端基于 Java SpringBoot + MyBatis + Redis + Mysql + Maven
+
+覆盖多端：pc、公众号 h5
+
+角色：全栈技术负责人
+
+项目维护和开发新功能模块有下面亮点: xx
+
 OCR
 AI 咨询助手
 AI 润色
@@ -16,13 +29,18 @@ TTS
 
 ### 2. 项目介绍
 
-我有个 百事通-珠海 OA 考评系统
+我有个 xx 系统
+
 项目描述：xx
+
 技术栈
 前端基于 react + antd + react-redux + react-router-dom + react-toolkit
 后端基于 Java SpringBoot + MyBatis + Redis + Mysql + Maven
+
 覆盖多端：pc、公众号 h5
+
 角色：全栈技术负责人
+
 项目维护和开发新功能模块有下面亮点: xx
 
 参考下面模板 帮我优化
