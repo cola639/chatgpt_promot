@@ -63,3 +63,99 @@
 
 16 帮我简化成以下形式 
 步行10分钟到A（A英文名）👉乘坐20分钟到B（B英文名）👉换成XX线到.... 
+
+17 1 解释名词 2 举例2个简单例子 3 举个生产例子
+
+18 1 解释名词 2 为什么需要它 解决了什么问题 3 举例2个简单例子 4 举个生产例子
+
+19 更口语化 更简单的句子结构 能用简单句尽量用简单句 更简单的单词 
+
+20 ### 英文问题：
+
+"Can you explain `useEffect` in React and provide a simple example?"
+
+### 简洁的英文回答结构：
+
+"`useEffect` is a React Hook that lets you perform side effects in function components, such as fetching data, updating the DOM, or subscribing to events. It takes two arguments: a function that defines the effect and an optional dependency array that controls when the effect runs."
+
+**Key points:**
+1. If the dependency array is empty (`[]`), the effect runs only once after the initial render.
+2. If dependencies are provided, the effect runs whenever those dependencies change.
+3. If no dependency array is provided, the effect runs after every render.
+
+**Example:**
+
+```javascript
+import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  // Effect that runs after every render
+  useEffect(() => {
+    console.log(`Count is: ${count}`);
+  }, [count]); // Dependency array
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  );
+}
+
+export default Example;
+```
+
+21 按上面问题 参考下面markdown表格  写一个英语markdown表格
+### Table of Contents
+
+<details open>
+<summary>
+Hide/Show table of contents
+</summary>
+
+| No. | Questions                                                                                                                                                    |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|     | **Core React**                                                                                                                                               |
+| 1   | [What is React?](#what-is-react) 
+
+22 根据上面内容 参考下面markdown表格 尽量用英语简单句结构答案 markdown表格 不需要 ```markdown开头
+
+1. ### What is Iterator in Java?
+
+`Iterator` is an interface that allows sequential traversal of elements in a collection. It provides methods like `hasNext()`, `next()`, and `remove()`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+---
+
+23 `==` compares memory addresses, while `equals` checks object content.
+口语怎么说这段话 
+
+24 将上面markdown内容整理成为下面形式 要求纯文本 序号+提问内容 不要Markdown内容
+1. What is the difference between JDK and JRE?
+2. What is the difference between `==` and `equals`?
+
+25 将问题和答案以下面的形式 返回 要求纯文本 序号+提问内容+答案 提问和答案不要有任何Markdown内容或者Markdown字符如'- `` ``` ```' 答案用简单句在口语面试中能说出来那种
+1 What are the Java containers?
+Java containers are part of the Java Collections Framework and are used to store and manipulate data. Common containers include:
+List includes ArrayList, LinkedList, and Vector.
+Set includes HashSet, LinkedHashSet, and TreeSet.
+Map includes HashMap, TreeMap, LinkedHashMap, and Hashtable.
+Queue includes PriorityQueue and ArrayDeque
+2 What is the difference between JDK and JRE? 
+JDK is for building Java applications, with tools like a compiler. JRE is for running Java applications, including the JVM and libraries.
+
+26 下面我给你什么  你返回一样的内容给我即可 不要多余的东西或者解释
+
+27 不要 ** 
+
+28 给我生成一个后台管理系统
+head是90高度 宽度100vw 
+mid是100vh - 90高度  宽度100vw 
+mid 分为三个部分 左边侧边栏 1/3宽度 有个箭头在左上角 
+可以将左边隐藏 隐藏也还有个箭头可以展开
+mid 中间宽度为2/3 
+mid 右边宽度1/3
+
