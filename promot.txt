@@ -159,3 +159,10 @@ mid 分为三个部分 左边侧边栏 1/3宽度 有个箭头在左上角
 mid 中间宽度为2/3 
 mid 右边宽度1/3
 
+29 
+   学习springCloud + maven + spring-boot-starter-parent2.7.18 + java17 项目 
+   我希望了解hystrix使用
+   给出一个简单模板 提供测试的 
+   包括pom.xml file directory
+   最好生成zip文件给我 
+   
