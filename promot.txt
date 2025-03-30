@@ -166,3 +166,6 @@ mid 右边宽度1/3
    包括pom.xml file directory
    最好生成zip文件给我 
    
+
+30 
+  基于maven 给出完整pom.xml file directory + 可测试代码项目
