@@ -81,3 +81,76 @@ driver-class-name: com.mysql.cj.jdbc.Driver
 -aspect
 -annotation
 -config
+
+### export rbac
+
+项目名称 springboot-rbac
+
+pom.xml 配置如下
+java 1.8
+spring-boot-starter-parent 2.7.16
+jpa
+mysql-connector-java
+lombok
+
+application.yml 配置文件
+url: jdbc:mysql://localhost:3306/movie?useSSL=false
+username: root
+password: 123456
+driver-class-name: com.mysql.cj.jdbc.Driver
+
+实现 rbac 权限管理 要求按钮级别的控制
+1 补充 pom
+2 补充 yml
+3 给出对应目录树 再给对应的文件内容
+4 sql 表设计
+如
+-aspect
+-annotation
+
+### websocket
+
+项目名称 springboot-websocket
+
+pom.xml 如下
+java 1.8
+spring-boot-starter-parent 2.7.16
+jpa
+mysql-connector-java
+lombok
+
+application.yml 配置文件
+url: jdbc:mysql://localhost:3306/movie?useSSL=false
+username: root
+password: 123456
+driver-class-name: com.mysql.cj.jdbc.Driver
+
+实现 websocket 集成
+1 补充 pom
+2 补充 yml
+3 给出对应目录树 再给对应的文件内容
+如
+-aspect
+-annotation
+
+### kafka
+
+项目名称 springboot-kafka
+
+pom.xml 如下
+java 1.8
+spring-boot-starter-parent 2.7.16
+jpa
+mysql-connector-java
+lombok
+
+application.yml 配置文件
+url: jdbc:mysql://localhost:3306/movie?useSSL=false
+username: root
+password: 123456
+driver-class-name: com.mysql.cj.jdbc.Driver
+
+实现 kafka 集成
+1 补充 pom
+2 补充 yml
+3 给出对应目录树 再给对应的文件内容
