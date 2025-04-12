@@ -154,3 +154,5 @@ driver-class-name: com.mysql.cj.jdbc.Driver
 1 补充 pom
 2 补充 yml
 3 给出对应目录树 再给对应的文件内容
+4 有可测试 controller
+5 关键日志输出
