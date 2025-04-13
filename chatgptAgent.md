@@ -156,3 +156,8 @@ driver-class-name: com.mysql.cj.jdbc.Driver
 3 给出对应目录树 再给对应的文件内容
 4 有可测试 controller
 5 关键日志输出
+
+### safe unsafe demo
+
+学习多线程 给出 safeDemo unsafeDemo
+只给改动的地方加上对比说明
