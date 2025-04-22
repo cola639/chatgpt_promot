@@ -161,3 +161,60 @@ driver-class-name: com.mysql.cj.jdbc.Driver
 
 学习多线程 给出 safeDemo unsafeDemo
 只给改动的地方加上对比说明
+
+### secKill goods
+
+我想学习秒杀系统设计
+先给我做一个错误的例子
+项目名称 springboot-seckill
+
+pom.xml 如下
+java 1.8
+spring-boot-starter-parent 2.7.16
+jpa
+mysql-connector-java
+lombok
+
+application.yml 配置文件
+url: jdbc:mysql://localhost:3306/goods?useSSL=false
+username: root
+password: 123456
+driver-class-name: com.mysql.cj.jdbc.Driver
+
+1 补充 pom.xml
+2 sql 插入商品
+3 补充 yml
+4 给出对应目录树 再给对应的文件内容
+5 有可测试 controller
+6 关键日志输出
+7 Jmeter 测试 jmx 基于 5.6.3 version 使用方法也补充下
+8 @SL4J 做日志记录 @RequiredArgsConstructor 做服务注入
+不要生成文件去下载 直接给我返回文件内容
+
+###
+
+我想学习 SSO 登录设计
+
+项目名称 springboot-sso
+
+pom.xml 如下
+java 1.8
+spring-boot-starter-parent 2.7.16
+jpa
+mysql-connector-java
+lombok
+
+application.yml 配置文件
+url: jdbc:mysql://localhost:3333/demo?useSSL=false
+username: root
+password: 123456
+driver-class-name: com.mysql.cj.jdbc.Driver
+
+1 补充 pom.xml
+2 补充 sql
+3 补充 yml
+4 给出对应目录树 再给对应的文件内容
+5 有可测试 controller
+6 关键日志输出
+8 @SL4J 做日志记录 @RequiredArgsConstructor 做服务注入
+不要生成文件去下载 直接给我返回文件内容
