@@ -218,3 +218,82 @@ driver-class-name: com.mysql.cj.jdbc.Driver
 6 关键日志输出
 8 @SL4J 做日志记录 @RequiredArgsConstructor 做服务注入
 不要生成文件去下载 直接给我返回文件内容
+
+### 参考这样形式 帮我写 XXX enums
+
+public enum MovieStatus {
+
+    INACTIVE(0, "Inactive"),
+    ACTIVE(1, "Active"),
+    BANNED(2, "Banned"),
+    COMING_SOON(3, "Coming Soon");
+
+    private final int code;
+    private final String description;
+
+    MovieStatus(int code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public static MovieStatus fromCode(int code) {
+        for (MovieStatus status : MovieStatus.values()) {
+            if (status.getCode() == code) {
+                return status;
+            }
+        }
+        throw new IllegalArgumentException("Unknown code: " + code);
+    }
+
+}
+
+### springboot jpa
+
+```
+create table movies
+(
+    movie_id     bigint(20) auto_increment comment 'Movie ID',
+    movie_name   varchar(255) null comment 'Movie name',
+    movie_type   varchar(255) null comment 'Movie type',
+    movie_actors varchar(255) null comment 'Movie actors',
+    movie_status tinyint(1)   null comment 'Movie status (active/inactive)',
+    create_time  datetime     null comment 'Record creation time',
+    update_time  datetime default current_timestamp on update current_timestamp comment 'Record last update time',
+    remarks      varchar(255) null comment 'Additional remarks',
+    primary key (movie_id)
+) engine = innodb
+  auto_increment = 1
+  default charset = utf8
+  collate = utf8_general_ci comment = 'Movies table';
+
+
+项目名称 springboot-jpa
+
+pom.xml 如下
+java 1.8
+spring-boot-starter-parent 2.7.16
+jpa
+mysql-connector-java
+lombok
+
+0 补充movie_movie_types movie_types actors sql包括每个表插入5条mock数据
+1 补充 pom
+2 补充 yml
+3 补充 sql 包括
+3 给出对应目录树 再给对应的文件内容
+
+
+实现jpa对movies的增删改查 并且实现分页功能
+实现movies 结合 actors查询
+实现根据movie_type查询
+实现涉及用oneToMany manyToMany join in exist between 复杂sql查询
+
+```
