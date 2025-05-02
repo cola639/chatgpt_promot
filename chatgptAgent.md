@@ -283,6 +283,7 @@ spring-boot-starter-parent 2.7.16
 jpa
 mysql-connector-java
 lombok
+JackJson
 
 0 补充movie_movie_types movie_types actors sql包括每个表插入5条mock数据
 1 补充 pom
@@ -296,4 +297,17 @@ lombok
 实现根据movie_type查询
 实现涉及用oneToMany manyToMany join in exist between 复杂sql查询
 
+
+
 ```
+
+### 项目名称 master slave
+
+我有两个节点 mysql 一个是本地端口 6060 mysql 账号 root 密码 123456
+另一个是 64.112.41.6060 账号 root 密码 123456
+MySQL InnoDB Cluster 来实现主从同步 容灾 强一致性
+两台机器已经配置好 mysql 给出每台机器剩下的步骤 包括安装的 library 和 分别配置内容
+
+### 安装 8.0
+
+一键安装脚本 mysql 8.0 并设置用户 root 和密码 123456 登录
