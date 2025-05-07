@@ -301,13 +301,28 @@ JackJson
 
 ```
 
-### 项目名称 master slave
+### 项目名称 master slave docker
 
-我有两个节点 mysql 一个是本地端口 6060 mysql 账号 root 密码 123456
-另一个是 64.112.41.6060 账号 root 密码 123456
-MySQL InnoDB Cluster 来实现主从同步 容灾 强一致性
-两台机器已经配置好 mysql 给出每台机器剩下的步骤 包括安装的 library 和 分别配置内容
+2 台 ubuntu20 机器 主数据库 142.171.9.183 从数据库 198.13.37.5
+基于主机模式
+部署 mysql8.0+ MySQL InnoDB Cluster 来实现主从同步 容灾 强一致性
+使用 MySQL Router 作为代理，确保自动负载均衡和故障转移
+mysql 账号设置 test 密码 test123
+分别给出 2 台对应配置内容
+
+我有 2 台机器都有 docker 计划主数据库 142.171.9.183 从数据库 64.112.41.32
+docker 部署 mysql8.0+ MySQL InnoDB Cluster 来实现主从同步 容灾 强一致性
+使用 MySQL Router 作为代理，确保自动负载均衡和故障转移
+账号设置 root 密码 123456
+给出安装的 library 和 分别给出 2 台对应配置内容
+
+我有 1 台机器有 docker docker-compose 计划 1 主 1 从
+主数据库容器本地 IP 3306 端口 从数据库容器本地 3307 端口
+docker 部署 mysql8.0+ MySQL InnoDB Cluster 来实现主从同步 容灾 强一致性
+使用 MySQL Router 作为代理，确保自动负载均衡和故障转移
+账号都设置 root 密码 123456
+给出安装的 library 和 分别给出 2 个数据库对应配置内容
 
 ### 安装 8.0
 
-一键安装脚本 mysql 8.0 并设置用户 root 和密码 123456 登录
+一键安装脚本 mysql 8.0 并设置用户 root 和密码 123456 登录 sh
