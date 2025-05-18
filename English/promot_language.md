@@ -40,3 +40,10 @@
   xxx
   这是个什么类型句子 分析句子成分  能以 x成分+x成分+x成分的话 以 x成分+x成分+x成分 返回
 ```
+
+### 咨询单词
+
+progress 只给音标 和 发音
+给出如以下形式
+a music record, a world record /ˈrek.ɔːrd/（美式）
+to record a video, to record a conversation /rɪˈkɔːrd/（美式
