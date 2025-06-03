@@ -326,3 +326,7 @@ docker 部署 mysql8.0+ MySQL InnoDB Cluster 来实现主从同步 容灾 强一
 ### 安装 8.0
 
 一键安装脚本 mysql 8.0 并设置用户 root 和密码 123456 登录 sh
+
+### sql
+
+把 Java 中带转义字符（\t, \n, + 拼接）的 @Query 注解里的 SQL 还原为可以直接在数据库控制台执行的完整 SQL 语句
