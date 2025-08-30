@@ -336,3 +336,21 @@ docker 部署 mysql8.0+ MySQL InnoDB Cluster 来实现主从同步 容灾 强一
 in a best design pattern, consider the functional requirement & flex & resuable
 design a email/export Excel/Amazon S3 service
 requirement: 1 , 2, 3,
+
+---
+
+Following best design patterns,design email service consider functional requirements, flexibility, and reusability.
+
+Functional Requirements
+
+1 Support configuration via YAML.
+
+2 Decouple the core email-sending logic from the actual implementation, allowing easy replacement of SMTP or third-party services (e.g., Alibaba Cloud Mail, AWS SES).
+
+3 Support bulk sending with parallel processing to avoid blocking.
+
+4 Use a template engine with Thymeleaf support.
+
+5 Utilize a thread pool and asynchronous tasks to prevent sequential blocking.
+
+6 Ensure high portability, allowing implementation replacement with zero intrusion.
