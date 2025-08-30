@@ -330,3 +330,9 @@ docker 部署 mysql8.0+ MySQL InnoDB Cluster 来实现主从同步 容灾 强一
 ### sql
 
 把 Java 中带转义字符（\t, \n, + 拼接）的 @Query 注解里的 SQL 还原为可以直接在数据库控制台执行的完整 SQL 语句
+
+### Design module
+
+in a best design pattern, consider the functional requirement & flex & resuable
+design a email/export Excel/Amazon S3 service
+requirement: 1 , 2, 3,
