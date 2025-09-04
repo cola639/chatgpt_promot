@@ -354,3 +354,18 @@ Functional Requirements
 5 Utilize a thread pool and asynchronous tasks to prevent sequential blocking.
 
 6 Ensure high portability, allowing implementation replacement with zero intrusion.
+
+7 Please also provide the code directory structure.
+
+8 Render dynamic email content using Thymeleaf templates
+
+### 可在不同项目 独立可迁移模块 遵循最佳实践方式 给出目录结构
+
+### design minio upload
+
+基于最佳设计模式 设计一个 minio 上传 下载文件的 service
+function requirement
+1 支持单个 或者批量上传
+2 支持生成时效性 token 给前端上传
+3 支持对单独某个文件生成有时间限制的访问链接 或者 下载链接
+4 支持生成时效性的文件 过期自动删除
